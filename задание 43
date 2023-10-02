@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    setlocale(LC_ALL, "Russian");
+    int startYear;
+
+    cout << "Введите начальный год эры: ";
+    cin >> startYear;
+
+    if (startYear >= 4500) {
+        cout << "Катархей" << endl;
+    }
+    else if (startYear >= 3500) {
+        cout << "Архей" << endl;
+    }
+    else if (startYear >= 2500) {
+        cout << "Протерозой" << endl;
+    }
+    else if (startYear >= 534) {
+        cout << "Палеозой" << endl;
+    }
+    else if (startYear >= 248) {
+        cout << "Мезозой" << endl;
+    }
+    else if (startYear >= 65) {
+        cout << "Кайнозой" << endl;
+    }
+    else {
+        cout << "Неизвестная эра" << endl;
+    }
+
+    return 0;
+}
