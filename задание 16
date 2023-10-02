@@ -1,15 +1,26 @@
 #include <iostream>
-#include <locale>
- 
 using namespace std;
- 
-int main()
-{
-    setlocale(LC_ALL,"RUS");
-    int age,month,year;
-    cout<<"Введите возраст в месяцах"<<endl;
-    cin>>age;
-    year=age/12;
-    month=age%12;
-    cout<<"Лет "<<year<<" месяцев "<<month;
+
+int main() {
+
+    setlocale(LC_ALL, "Russian");
+    int n;
+
+    cout << "Введите возраст в месяцах (1 <= n <= 1188): ";
+    cin >> n;
+
+    int years = n / 12;
+    int months = n % 12;
+
+    if (years == 0) {
+        cout << months << " месяцев" << endl;
+    }
+    else if (months == 0) {
+        cout << years << " " << (years == 1 ? "год" : "лет") << endl;
+    }
+    else {
+        cout << years << " " << (years == 1 ? "год" : "года") << " " << months << " месяцев" << endl;
+    }
+
+    return 0;
 }
