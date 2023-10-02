@@ -2,25 +2,33 @@
 using namespace std;
 
 int main() {
-
-    setlocale(LC_ALL, "Russian");
+setlocale(CL_ALL "Russian");
     int n;
 
-    cout << "Введите возраст в месяцах (1 <= n <= 1188): ";
+    cout << "Введите возраст в месяцах : ";
     cin >> n;
 
     int years = n / 12;
     int months = n % 12;
 
+    // Проверка на високосный год (каждый 4-й год)
+    bool isLeapYear = ((years + 1) % 4 == 0);
+
     if (years == 0) {
         cout << months << " месяцев" << endl;
-    }
-    else if (months == 0) {
+    } else if (months == 0) {
         cout << years << " " << (years == 1 ? "год" : "лет") << endl;
-    }
-    else {
-        cout << years << " " << (years == 1 ? "год" : "года") << " " << months << " месяцев" << endl;
+    } else {
+        cout << years << " " << (years == 1 ? "год" : "года") << " " << months << " месяцев";
+
+        // Добавляем условие для вывода "29 февраля" при високосном годе
+        if (isLeapYear && months == 1) {
+            cout << " (включая 29 февраля)";
+        }
+
+        cout << endl;
     }
 
     return 0;
-}
+} 
+
