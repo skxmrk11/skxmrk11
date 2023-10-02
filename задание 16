@@ -1,0 +1,15 @@
+#include <iostream>
+#include <locale>
+ 
+using namespace std;
+ 
+int main()
+{
+    setlocale(LC_ALL,"RUS");
+    int age,month,year;
+    cout<<"Введите возраст в месяцах"<<endl;
+    cin>>age;
+    year=age/12;
+    month=age%12;
+    cout<<"Лет "<<year<<" месяцев "<<month;
+}
