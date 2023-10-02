@@ -1,0 +1,32 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "Russian");
+    int districtNumber;
+
+    std::cout << "Введите номер округа Москвы: ";
+    std::cin >> districtNumber;
+
+    std::string districtName;
+
+    switch (districtNumber) {
+    case 1:
+        districtName = "ЦАО";
+        break;
+    case 2:
+        districtName = "ЮВАО";
+        break;
+    case 3:
+        districtName = "ВАО";
+        break;
+        // Добавь остальные окурга по аналогии крч)
+    default:
+        districtName = "Неизвестный округ";
+        break;
+    }
+
+    std::cout << "Название округа Москвы: " << districtName << std::endl;
+
+    return 0;
+}
