@@ -1,34 +1,36 @@
 #include <iostream>
-using namespace std;
+
+bool isLeapYear(int year) {
+    if (year % 4 != 0) return false;
+    if (year % 100 != 0) return true;
+    if (year % 400 == 0) return true;
+    return false;
+}
+
+int monthsInYears(int years) {
+    int startYear = 2023 - years; // Так как текущий год 2023
+    int months = years * 12;
+    for (int year = startYear; year < 2023; ++year) {
+        if (isLeapYear(year)) {
+            months++;
+        }
+    }
+    return months;
+}
 
 int main() {
-setlocale(CL_ALL "Russian");
+setlocale(CL_ALL "RUS");
     int n;
+    std::cout << "Введите возраст в годах или годах и месяцах (например, 22 или 22.10): ";
+    double age;
+    std::cin >> age;
 
-    cout << "Введите возраст в месяцах : ";
-    cin >> n;
+    int years = static_cast<int>(age);
+    int months = static_cast<int>((age - years) * 100); // Получаем месяцы
 
-    int years = n / 12;
-    int months = n % 12;
+    int totalMonths = monthsInYears(years) + months;
 
-    // Проверка на високосный год (каждый 4-й год)
-    bool isLeapYear = ((years + 1) % 4 == 0);
-
-    if (years == 0) {
-        cout << months << " месяцев" << endl;
-    } else if (months == 0) {
-        cout << years << " " << (years == 1 ? "год" : "лет") << endl;
-    } else {
-        cout << years << " " << (years == 1 ? "год" : "года") << " " << months << " месяцев";
-
-        // Добавляем условие для вывода "29 февраля" при високосном годе
-        if (isLeapYear && months == 1) {
-            cout << " (включая 29 февраля)";
-        }
-
-        cout << endl;
-    }
+    std::cout << "Общее количество месяцев в вашем возрасте (с учетом 29 февраля): " << totalMonths << std::endl;
 
     return 0;
-} 
-
+}
