@@ -1,0 +1,30 @@
+#include <cmath>
+#include <iostream>
+
+int main() {
+  size_t n, m;
+  std::cin >> n >> m;
+  size_t max_idx = 0;
+  double max = std::numeric_limits<double>::min();
+  double** arr = new double*[n];
+  for (size_t i = 0; i < n; ++i) {
+    arr[i] = new double[m];
+    for (size_t j = 0; j < m; ++j) {
+      std::cin >> arr[i][j];
+      if (max < arr[i][j]) {
+        max = arr[i][j];
+        max_idx = j;
+      }
+    }
+  }
+
+  for (size_t i = 0; i < n; ++i) {
+    for (size_t j = 0; j < m; ++j) {
+      if (j == max_idx) continue;
+      std::cout << arr[i][j] << ' ';
+    }
+    std::cout << '\n';
+    delete[] arr[i];
+  }
+  delete[] arr;
+}
