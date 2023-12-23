@@ -1,0 +1,22 @@
+#include <cmath>
+#include <iostream>
+
+void SortInc2(double& x, double& y) {
+  if (x > y) std::swap(x, y);
+}
+
+void SortInc3(double& x, double& y, double& z) {
+  SortInc2(x, y);
+  SortInc2(y, z);
+  SortInc2(x, y);
+}
+
+int main() {
+  for (size_t i = 0; i < 2; ++i) {
+    double x, y, z;
+    std::cin >> x >> y >> z;
+    SortInc3(x, y, z);
+    std::cout << x << ' ' << y << ' ' << z << '\n';
+  }
+  return 0;
+}
