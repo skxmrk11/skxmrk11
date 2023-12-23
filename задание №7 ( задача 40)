@@ -1,0 +1,27 @@
+#include <cmath>
+#include <iostream>
+#include <unordered_set>
+
+int main() {
+  size_t n, m;
+  std::cin >> n >> m;
+  std::unordered_multiset<double> set;
+  size_t max_count = 0, max_idx = 0;
+  for (size_t i = 0; i < n; ++i) {
+    set.clear();
+    for (size_t j = 0; j < m; ++j) {
+      double elem;
+      std::cin >> elem;
+      set.insert(elem);
+    }
+    size_t max = 0;
+    for (auto elem : set) {
+      if (set.count(elem) > max) max = set.count(elem);
+    }
+    if (max >= max_count) {
+      max_count = max;
+      max_idx = i;
+    }
+  }
+  std::cout << max_idx + 1;
+}
