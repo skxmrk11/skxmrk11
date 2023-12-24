@@ -1,0 +1,18 @@
+//Seydaliev Tagietdin, RUDN, NPI-03-23, 24.11.23, 19:29
+#include <cmath>
+#include <cstdio>
+
+/* Известна сумма денег, имеющаяся у покупателя и стоимость одной единицы
+ * товара. Сколько единиц товара сможет купить покупатель и какова его сдача?
+ */
+
+int main() {
+  double total;
+  printf("Сумма у покупателя: ");
+  scanf("%lf", &total);
+  double price;
+  printf("Цена одной единицы: ");
+  scanf("%lf", &price);
+  printf("Можно взять %d единиц товара со сдачей %lf\n", (int)(total / price),
+         std::fmod(total, price));
+}
