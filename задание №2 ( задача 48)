@@ -1,0 +1,18 @@
+//Seydaliev Tagietdin, RUDN, NPI-03-23, 24.11.23, 19:49
+#include <cmath>
+#include <cstdio>
+
+/* Даны три вещественных числа. Возвести в квадрат те из них, значения которых
+ * неотрицательны.
+ */
+
+int main() {
+  double a, b, c;
+  printf("Три числа: ");
+  scanf("%lf %lf %lf", &a, &b, &c);
+  if (a >= 0) a *= a;
+  if (b >= 0) b *= b;
+  if (c >= 0) c *= c;
+  printf("Эти три числа после операций: %lf %lf %lf\n", a, b, c);
+  return 0;
+}
