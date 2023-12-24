@@ -1,0 +1,22 @@
+//Seydaliev Tagietdin, RUDN, NPI-03-23, 24.11.23, 20:02
+#include <cmath>
+#include <cstdio>
+
+/* Напишите программу, которая запрашивает у пользователя число и проверяет,
+ * является ли оно простым
+ */
+
+int main() {
+  int a;
+  printf("Число: ");
+  scanf("%d", &a);
+  int limit = (int)sqrt(a);
+  for (int divisor = 2; divisor < limit; ++divisor) {
+    if (a % divisor == 0) {
+      printf("Число составное");
+      return 0;
+    }
+  }
+  printf("Число простое");
+  return 0;
+}
