@@ -1,0 +1,20 @@
+//Seydaliev Tagietdin, RUDN, NPI-03-23, 24.11.23, 21:49
+#include <iostream>
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int N1, N2, a;
+    string s, S1, S2;
+    cin >> N1 >> N2;
+    getline(cin, S1);
+    getline(cin, S1);
+    getline(cin, S2);
+    a = S2.size() - N2;
+    s = S1.substr(0, N1);
+    s += S2.substr(a, N2);
+    cout << s;
+    return 0;
+}
